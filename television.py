@@ -11,35 +11,57 @@ class Television:
         self.channel:int = Television.MIN_CHANNEL
 
     def power(self):
+        '''
+        Toggle the power status.
+        '''
         if self.status == False:
             self.status = True
         else: 
             self.status = False
 
     def mute(self):
+        '''
+        Toggle the Mute status
+        '''
         if self.muted == True:
             self.muted = False
         else: 
             self.muted = True
 
     def channel_up(self):
+        '''
+        Increment Channel variable
+        '''
         if self.channel < Television.MAX_CHANNEL:
             self.channel += 1
         else:
             self.channel = Television.MIN_CHANNEL
 
     def channel_down(self):
+        '''
+        Decrement Channel variable
+        '''
         if self.channel > Television.MIN_CHANNEL:
             self.channel -= 1
         else:
             self.channel = Television.MAX_CHANNEL
         
     def volume_up(self):
+        '''
+        Increment volume variable
+
+        Untoggle mute status
+        '''
         self.mute = False
         if self.volume < Television.MAX_VOLUME:
             self.volume += 1
     
     def volume_down(self):
+        '''
+        Decrement volume variable
+
+        Untoggle mute status
+        '''
         self.mute = False
         if self.volume > Television.MIN_VOLUME:
             self.volume -= 1
